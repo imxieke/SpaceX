@@ -1,0 +1,157 @@
+47.88.128.0/22,SG
+47.88.160.0/19,SG
+47.88.132.0/24,SG
+47.88.136.0/21,SG
+47.88.0.0/19,US,US-CA
+47.88.48.0/20,US,US-CA
+47.88.32.0/21,US,US-CA
+47.88.46.0/23,US,US-CA
+47.52.0.0/16,HK,,Hong kong
+47.56.0.0/15,HK,,Hong kong
+147.139.0.0/17,IN,,Chennai
+47.251.0.0/16,US,US-CA
+47.250.0.0/16,MY,,Kuala Lumpur
+147.139.128.0/17,ID,,Jakarta
+47.88.64.0/18,US,US-CA
+47.74.64.0/18,AU,,Sydney
+47.75.0.0/16,HK,,Hong kong
+47.74.0.0/18,JP,,Tokyo
+47.254.128.0/18,DE,,Frankfurt
+47.74.128.0/17,SG
+47.254.192.0/18,MY,,Kuala Lumpur
+47.254.0.0/17,US,US-CA
+47.88.144.0/20,SG
+161.117.0.0/16,SG
+47.88.192.0/18,SG
+8.211.0.0/17,DE,,Frankfurt
+47.252.128.0/17,AU,,Sydney
+47.253.0.0/16,US,US-VA
+47.252.0.0/17,US,US-VA
+47.89.70.0/24,RU,,St Petersburg
+47.89.91.0/24,SG
+47.91.32.0/19,AU,,Sydney
+47.90.0.0/17,HK,,Hong kong
+47.91.128.0/17,HK,,Hong kong
+47.91.0.0/19,JP,,Tokyo
+47.91.96.0/19,AE,,Dubai
+47.91.64.0/19,DE,,Frankfurt
+47.90.128.0/17,US,US-VA
+47.246.52.0/24,IN,,Mumbai
+47.89.113.0/24,IN,,Mumbai
+47.246.4.0/24,JP,,Tokyo
+47.246.42.0/24,AU,,Sydney
+163.181.15.0/24,DE,,Frankfurt
+47.246.22.0/24,US,,New York
+47.246.45.0/24,ES,,Madrid
+47.246.56.0/23,TH,,Bangkok
+47.246.8.0/22,TH,,Bangkok
+47.89.120.0/24,TH,,Bangkok
+47.246.23.0/24,US,,San Jose
+47.89.64.0/24,TW,,Taipei
+47.246.36.0/23,TW,,Taipei
+47.246.38.0/24,TW,,Taipei
+163.181.16.0/23,TH,,Bangkok
+47.246.47.0/24,GB,,London
+163.181.36.0/23,SG
+163.181.38.0/24,SG
+47.246.50.0/24,FR,,Paris
+47.246.12.0/23,MY,,Kuala Lumpur
+47.246.31.0/24,MY,,Kuala Lumpur
+47.246.53.0/24,IN,,Chennai
+47.89.112.0/24,IN,,Kolkata
+47.246.18.0/24,US,,Seattle
+47.89.69.0/24,US,,Seattle
+47.246.43.0/24,DE,,Frankfurt
+163.181.30.0/24,ID,,Jakarta
+163.181.28.0/23,ID,,Jakarta
+163.181.18.0/23,ID,,Jakarta
+163.181.24.0/22,ID,,Jakarta
+163.181.14.0/24,IN,,Chennai
+163.181.12.0/23,IN,,Chennai
+163.181.8.0/22,IN,,Chennai
+47.246.7.0/24,ZA,,Johannesburg
+47.89.121.0/24,ZA,,Johannesburg
+163.181.40.0/23,HK,,Hong kong
+47.246.60.0/23,HK,,Hong kong
+47.246.16.0/24,HK,,Hong kong
+47.246.44.0/24,SE,,Stockholm
+47.246.2.0/24,RU,,Moscow
+47.246.46.0/24,IT,,Milan
+47.89.65.0/24,IT,,Milan
+163.181.0.0/23,RU,,Moscow
+163.181.2.0/23,IN,,Mumbai
+163.181.4.0/22,IN,,Mumbai
+47.246.20.0/24,US,,Dallas
+47.89.68.0/24,US,,Dallas
+47.246.3.0/24,RU,,St Petersburg
+163.181.31.0/24,PH,,Manila
+163.181.22.0/24,KR,,Seoul
+47.89.66.0/24,JP,,?saka
+47.246.30.0/24,KW,,Kuwait
+47.246.19.0/24,US,,Miami
+47.246.55.0/24,PH,,Manila
+47.246.0.0/24,PH,,Manila
+47.246.14.0/24,ID,,Jakarta
+47.246.48.0/24,NL,,Amsterdam
+47.246.54.0/24,SA,,Riyadh
+47.246.25.0/24,US,,Los Angeles
+163.181.23.0/24,JP,,Tokyo
+163.181.39.0/24,JP,,Tokyo
+47.246.41.0/24,AU,,Melbourne
+47.246.17.0/24,US,,Chicago
+47.246.24.0/24,US,US-VA
+47.246.28.0/24,OM,,Muscat
+47.89.116.0/24,ID,,Chennai
+47.246.51.0/24,ID,,Chennai
+47.246.59.0/24,KR,,Seoul
+47.246.29.0/24,KR,,Seoul
+47.89.67.0/24,US,,Denver
+47.246.21.0/24,US,,Denver
+47.246.58.0/24,SG
+47.246.39.0/24,SG
+163.181.42.0/23,SG
+47.246.62.0/23,SG
+47.246.1.0/24,SG
+163.181.20.0/23,MY,,Kuala Lumpur
+163.181.32.0/22,HK,,Hong kong
+163.181.46.0/23,ID,,Jakarta
+163.181.44.0/24,JP,,Tokyo
+163.181.45.0/24,JP,,?saka
+163.181.49.0/24,ES,,Madrid
+163.181.48.0/24,AE,,Dubai
+163.181.52.0/22,TH,,Bangkok
+163.181.51.0/24,FR,,Paris
+163.181.50.0/24,IT,,Milan
+163.181.58.0/23,MY,,Kuala Lumpur
+163.181.57.0/24,GB,,London
+163.181.56.0/24,DE,,Frankfurt
+163.181.60.0/24,US,US-VA
+47.240.0.0/16,HK,,Hong kong
+47.241.0.0/16,SG
+47.244.0.0/16,HK,,Hong kong
+47.245.0.0/18,JP,,Tokyo
+149.129.64.0/18,HK,,Hong kong
+149.129.192.0/18,ID,,Jakarta
+149.129.0.0/20,KR,,Seoul
+149.129.128.0/18,IN,,Chennai
+149.129.16.0/23,US,US-VA
+8.211.128.0/18,JP,,Tokyo
+47.245.128.0/17,DE,,Frankfurt
+8.211.192.0/18,GB,,London
+8.208.0.0/16,GB,,London
+8.209.36.0/23,TH,,Bangkok
+8.209.128.0/18,RU,,Moscow
+8.209.0.0/19,RU,,Moscow
+8.209.192.0/18,JP,,Tokyo
+8.209.48.0/20,AE,,Dubai
+8.209.64.0/18,DE,,Frankfurt
+47.89.192.0/18,US,US-CA
+8.209.32.0/22,TW,,Taipei
+47.89.128.0/18,US,US-VA
+47.89.115.0/24,IN,,Bangalore
+47.89.114.0/24,IN,,Hyderabad
+8.209.44.0/22,ZA,,Johannesburg
+8.209.40.0/22,PH,,Manila
+149.129.24.0/21,TW,,Taipei
+198.11.167.0/24,US,US-CA
+47.246.26.0/23,MY,,Kuala Lumpur

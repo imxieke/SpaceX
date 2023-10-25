@@ -1,0 +1,11 @@
+{
+	"editor.suggest.snippetsPreventQuickSuggestions": false,
+	"aiXcoder.showTrayIcon": true,
+	"editor.inlineSuggest.enabled": true,
+	"diffEditor.codeLens": true,
+	"php.stubs": [
+		"*",
+		"bc",
+		"gmp"
+	]
+}

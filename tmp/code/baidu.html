@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    <style type="text/css">
+        body, html, #allmap {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+        }
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=McLRH4uGcoa99hwKf9Y97y1b"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <title>添加多个标注点</title>
+</head>
+<body>
+<div id="allmap"></div>
+</body>
+</html>
+
+<script type="text/javascript">
+
+    var map = new BMap.Map("allmap");
+    var point = new BMap.Point(105, 38);
+    map.centerAndZoom(point, 5);
+
+    // 编写自定义函数,创建标注
+    function addMarker(point, text) {
+        var marker = new BMap.Marker(point);
+        bm = map.addOverlay(marker);
+        var label = new BMap.Label(text, {offset: new BMap.Size(20, -10)});
+        marker.setLabel(label);
+    }
+
+    $.getJSON("geo.json", function (data) {
+        console.log(data)
+        for (var i = 0; i < data.length; i++) {
+            var obj = data[i];
+            var coordinate = obj.content.point;
+            var point = new BMap.Point(coordinate.x, coordinate.y);
+            addMarker(point, obj.count);
+        }
+    });
+
+</script>

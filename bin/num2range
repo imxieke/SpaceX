@@ -1,0 +1,17 @@
+#!/usr/bin/env php
+<?php
+/*
+ * @Author: Cloudflying
+ * @Date: 2022-06-21 01:28:00
+ * @LastEditTime: 2023-10-22 18:33:42
+ * @LastEditors: Cloudflying
+ * @Description: 
+ */
+require_once dirname(__DIR__) . '/lib/function.php';
+if (isset($argv[1])) {
+    echo num2range($argv[1]) .PHP_EOL ;
+}
+else
+{
+    echo "example: 1.0.0.0/512 to get cidr" . PHP_EOL ;
+}

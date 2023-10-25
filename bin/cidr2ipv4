@@ -1,0 +1,6 @@
+#!/usr/bin/env php
+<?php
+require_once __DIR__ . '/../lib/autoload.php';
+
+$res = cidrToIpv4($argv[1]);
+print_r($res);

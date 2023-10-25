@@ -1,0 +1,50 @@
+<?php
+
+/*
+ * @Author: Cloudflying
+ * @Date: 2023-05-28 22:04:02
+ * @LastEditTime: 2023-10-22 17:52:02
+ * @LastEditors: Cloudflying
+ * @Description: 
+ */
+
+// use IP2Location\Database;
+
+class IP2Lcation
+{
+	protected $dbfile = '';
+	public function __construct($dbfile)
+	{
+		$this->dbfile = $dbfile;
+		if (!file_exists($this->dbfile)) {
+			throw new Exception("ChunZhen DB File Not Found", 1);
+		}
+	}
+
+	public function find($ip)
+	{
+		// $ch = new Database($this->dbfile);
+		$ch = new \IP2Location\Database($this->dbfile, \IP2Location\Database::FILE_IO);
+		$data = $ch->lookup($ip);
+		unset($data['ipNumber']);
+		unset($data['ipVersion']);
+		unset($data['mcc']);
+		unset($data['mnc']);
+		unset($data['mobileCarrierName']);
+		unset($data['weatherStationName']);
+		unset($data['weatherStationCode']);
+		unset($data['iddCode']);
+		unset($data['areaCode']);
+		unset($data['as']);
+		unset($data['asn']);
+		unset($data['district']);
+		unset($data['category']);
+		unset($data['addressType']);
+		unset($data['usageType']);
+		unset($data['elevation']);
+		unset($data['netSpeed']);
+		unset($data['domainName']);
+		unset($data['isp']);
+		return $data;
+	}
+}

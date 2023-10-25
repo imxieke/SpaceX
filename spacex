@@ -1,0 +1,195 @@
+#!/usr/bin/env php
+<?php
+
+ini_set('memory_limit','1024M');
+$start_time = time();
+define('MEM_USAGE', memory_get_usage());
+define('DATE_TODAY',date('Y-m-d',time()));
+define('TODAY',date('Ymd',time()));
+$config = require_once __DIR__ . '/lib/config.php';
+
+const CUR_DIR 				= __DIR__;
+const DATA_DIR 				= CUR_DIR  . '/databases';
+const GLOBAL_ASN 			= DATA_DIR . '/latest/asn_'   . DATE_TODAY . '.csv';
+const GLOBAL_IPV4			= DATA_DIR . '/latest/ipv4_'  . DATE_TODAY . '.csv';
+const GLOBAL_IPV6			= DATA_DIR . '/latest/ipv6_' . DATE_TODAY . '.csv';
+const DOWN_DIR 				= '/tmp/down';
+
+// 加载库
+if(file_exists(__DIR__ . '/lib/function.php'))
+	require_once 'lib/function.php';
+
+// 加载 Net 库
+if(file_exists(__DIR__ . '/lib/net.php'))
+	require_once 'lib/net.php';
+
+// 加载纯真库
+if(file_exists(__DIR__ . '/lib/qqwry.php'))
+	require_once 'lib/qqwry.php';
+
+// 加载 Geolite2
+if(file_exists(__DIR__ . '/lib/Geoip.php'))
+	require_once 'lib/Geoip.php';
+
+// 加载 Ip2Region
+if(file_exists(__DIR__ . '/lib/ip2Region.php'))
+	require_once 'lib/ip2Region.php';
+
+// 加载 Ip2Location
+if(file_exists(__DIR__ . '/lib/ip2Location.php'))
+	require_once 'lib/ip2Location.php';
+
+// 加载 Medoo 数据库管理库
+if(file_exists('vendor/autoload.php'))
+	require_once 'vendor/autoload.php';
+
+$end_time = time();
+$mem_usage =  (memory_get_usage() - MEM_USAGE);
+$mem_usage = $mem_usage /1024/1024; //MB
+$mem_usage = round($mem_usage,3);
+// echo "\n Total Time: " . ($end_time - $start_time) . 's' . ' Memory Usage: ' . $mem_usage  .PHP_EOL;
+// echo $end_time . PHP_EOL;
+// echo $start_time . PHP_EOL;
+
+/**
+ * 脚本执行所需依赖 php 函数和 系统命令
+ */
+function depency()
+{
+	if(!is_dir(DATA_DIR))
+		mkdir(DOWN_DIR);
+
+	if(!is_dir(DOWN_DIR))
+		mkdir(DOWN_DIR);
+
+	if(!file_exists('/usr/bin/command') && ! file_exists('/bin/command'))
+		throw new \Exception("'command' Command Not Found");
+
+	$depency = ['cat','wget','grep','awk','sort'];
+	$depency_func = ['shell_exec','exec'];
+	$loss_cmd = '';
+	$loss_func = '';
+
+	foreach ($depency_func as $key => $func)
+	{
+		if (!function_exists($func))
+		{
+			$loss_func = $loss_func . ' ' . $func;
+		}
+	}
+
+	foreach ($depency as $key => $cmd)
+	{
+		if (shell_exec('command -v ' . $cmd) == '')
+		{
+			$loss_cmd = $loss_cmd . ' ' . $cmd;
+		}
+	}
+	if($loss_cmd != '')
+		echo 'Command Not Found: ' . $loss_cmd . PHP_EOL;
+		// echo 'Congratulation All Command is Ready' . PHP_EOL;
+	// else
+
+	if($loss_func != '')
+		// echo 'Congratulation All Command is Ready' . PHP_EOL;
+		echo 'Command Not Found: ' . $loss_func . PHP_EOL;
+	// else
+}
+
+function test()
+{
+	// build_asn_num();
+	// build_global_ip();
+	update_ips();
+	// num2range('/tmp/ipv4_tmp.txt','/tmp/ipv4_range.txt');
+	// num2range('/tmp/ipv6_tmp.txt','/tmp/ipv6_format.txt');
+	// range2cidr('/tmp/ipv4_tmp.txt','/tmp/ipv4_format.txt');
+	// cidr2range('/tmp/geo_v4_file_tmp_cidr.txt','/tmp/geo_v4_file_tmp_range.txt');
+	// longip2range('/tmp/ip2loc_v4_file_tmp_longip.txt','/tmp/ip2loc_v4_file_tmp_range.txt');
+	// get_all_source();
+	// echo `whoami`;
+	// print_r(mask2range('1.0.0.0/24'));
+}
+
+/**
+ * Command Usage
+ */
+function usage()
+{
+	$usage = "LocationX Command Line version 0.1.1
+\tWrite By PHP
+
+usage Command:
+\t -b,--build	\t build ip database
+\t -u,--update 	\t update ip database
+";
+	print($usage);
+}
+
+if( ! isset($argv[1])) $argv[1] = 'default';
+
+// 运行前检查依赖
+depency();
+
+// echo num2cidr('1.0.0.0',256);
+// echo num2range('1.0.0.0',512);
+// echo range2cidr('1.0.0.0-1.255.255.255');
+// filter_asn($config);
+// get_all_asn();
+// exit;
+
+switch ($argv[1])
+{
+	case 'update':
+	case 'fetch':
+		get_all_source($config);
+	case '-b':
+	case '--build':
+		// build_asn();
+		// build_ipv4();
+		break;
+	case 'format':
+		// format();
+		break;
+	case 'build-ip':
+		// get_global_ip();
+		break;
+	case 'merge-asn':
+		merge_asn_info();
+		break;
+	case 'build-asn':
+		ipip_asn();
+		// build_bgp_asn();
+		// build_asn();
+		break;
+	case 'build-ipv4':
+		// build_ipv4();
+		break;
+	case '-f':
+	case 'find':
+	case '--find':
+		find();
+		break;
+	case 'test':
+		test();
+		break;
+	case 'insert':
+		// insert();
+		write2db();
+		break;
+	case '-u':
+	case '--update':
+		// get_all_source();
+		// uncompress_file();
+		break;
+	case '-h':
+	case 'help':
+	case '--help':
+		usage();
+		break;
+	default:
+		usage();
+		break;
+}
+
+echo PHP_EOL;

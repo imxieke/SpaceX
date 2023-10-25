@@ -1,0 +1,10 @@
+{
+    "require": {
+        "catfan/medoo": "^1.7",
+        "vlucas/phpdotenv": "^5.2",
+        "chinayin/ip2region-core": "^2.0",
+        "ip2location/ip2location-php": "^9.7",
+        "ip2location/ip2proxy-php": "^4.1",
+        "markrogoyski/ipv4-subnet-calculator": "^4.0"
+    }
+}

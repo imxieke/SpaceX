@@ -1,0 +1,72 @@
+#!/usr/bin/env php
+<?php
+
+/*
+ * @Author: Cloudflying
+ * @Date: 2023-05-30 00:36:07
+ * @LastEditTime: 2023-10-22 18:52:11
+ * @LastEditors: Cloudflying
+ * @Description: 获取 IP 信息
+ */
+
+require_once __DIR__ . '/../lib/autoload.php';
+
+use ip2region\XdbSearcher;
+
+$geo_city_db = dirname(__DIR__) . '/databases/source/geolite/GeoLite2-City.mmdb';
+$dbip_db = dirname(__DIR__) . '/databases/source/dbip/dbip-city.mmdb';
+// $dbip_db = dirname(__DIR__) . '/databases/source/dbip/dbip-asn.mmdb';
+// $ipinfo_db = dirname(__DIR__) . '/databases/source/ipinfo/ipinfo-country.mmdb';
+$ipinfo_db = dirname(__DIR__) . '/databases/source/ipinfo/ipinfo-country_asn.mmdb';
+$ip2region_xdb = dirname(__DIR__) . '/databases/source/ip2region/ip2region.xdb';
+$qqwry = dirname(__DIR__) . '/databases/source/chunzhen/chunzhen.dat';
+$ip2location_ipv4 = dirname(__DIR__) . '/databases/source/ip2location/IP2LOCATION-LITE-DB11.BIN';
+$ip2location_ipv6 = dirname(__DIR__) . '/databases/source/ip2location/IP2LOCATION-LITE-DB11.IPV6.BIN';
+$ip2proxy = dirname(__DIR__) . '/databases/source/ip2location/IP2PROXY-LITE-PX11.BIN';
+
+$drive = isset($argv[1]) ? $argv[1] : 'chunzhen';
+$ip = isset($argv[2]) ? $argv[2] : '223.5.5.5';
+
+switch ($drive) {
+	case 'chunzhen':
+		$ch = new \QQWry($qqwry);
+		$data = $ch->get($ip);
+		print_r($data);
+		break;
+	case 'geolite':
+		$ch = new \Reader($geo_city_db);
+		$data = $ch->get($ip);
+		print_r($data);
+		break;
+	case 'dbip':
+		$ch = new \Reader($dbip_db);
+		$data = $ch->get($ip);
+		print_r($data);
+		break;
+	case 'ipinfo':
+		$ch = new \Reader($ipinfo_db);
+		$data = $ch->get($ip);
+		print_r($data);
+		break;
+	case 'ip2location-v4':
+		$ch = new \IP2Location\Database($ip2location_ipv4, \IP2Location\Database::FILE_IO);
+		$data = $ch->lookup($ip);
+		print_r($data);
+		break;
+	case 'ip2location-v6':
+		$ch = new \IP2Location\Database($ip2location_ipv6, \IP2Location\Database::FILE_IO);
+		$data = $ch->lookup($ip);
+		print_r($data);
+		break;
+	case 'ip2proxy':
+		$ch = new \IP2Proxy\Database($ip2proxy, \IP2PROXY\Database::FILE_IO);;
+		$data = $ch->lookup($ip);
+		print_r($data);
+		break;
+	case 'ip2region':
+		$data = XdbSearcher::newWithFileOnly($ip2region_xdb)->search($ip);
+		print_r($data);
+		break;
+	default:
+		echo "Null Drive: {$drive} " . PHP_EOL;
+}

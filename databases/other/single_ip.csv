@@ -1,0 +1,4 @@
+ip,continent,country,province,city,area,anycast,isp,hostname
+8.8.8.8,Anycast,US,加利福尼亚州,圣克拉拉县,,true,Google,dns.google
+8.8.4.4,Anycast,US,加利福尼亚州,圣克拉拉县,,true,Google,dns.google
+1.1.1.1,anycast,AU,,,true,Cloudflare
